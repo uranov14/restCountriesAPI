@@ -1,13 +1,123 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+:root {
+  --darkBlue: hsl(209, 23%, 22%);
+  --veryDarkBlueDarkMode: hsl(207, 26%, 17%);
+  --veryDarkBlueLightMode: hsl(200, 15%, 8%);
+  --darkGray: hsl(0, 0%, 52%);
+  --veryLightGrayLightMode: hsl(0, 0%, 98%);
+  --white: hsl(0, 0%, 100%);
+  font-size: 16px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+header {
+  border-bottom: 5px solid hsl(0, 0%, 88%);
+}
+
+.theme-toggle {
+  --size: 2rem;
+  
+  background: none;
+  border: none;
+  padding: 0;
+
+  inline-size: var(--size);
+  block-size: var(--size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  outline-offset: 5px;
+
+  @media (hover: none) {
+    --size: 48px;
+  }
+}
+
+.theme-toggle > svg {
+  inline-size: 100%;
+  block-size: 100%;
+  stroke-linecap: round;
+}
+/*
+.sun-and-moon {
+  & > :is(.moon, .sun, .sun-beams) {
+    transform-origin: center center;
+  }
+
+  & > :is(.moon, .sun) {
+    fill: var(--icon-fill);
+
+    @nest .theme-toggle:is(:hover, :focus-visible) > & {
+      fill: var(--icon-fill-hover);
+    }
+  }
+
+  & > .sun-beams {
+    stroke: var(--icon-fill);
+    stroke-width: 2px;
+
+    @nest .theme-toggle:is(:hover, :focus-visible) & {
+      stroke: var(--icon-fill-hover);
+    }
+  }
+}
+
+.sun-and-moon > :is(.moon, .sun) {
+  fill: var(--icon-fill);
+
+  @nest .theme-toggle:is(:hover, :focus-visible) > & {
+    fill: var(--icon-fill-hover);
+  }
+}
+*/
+
+.form input, select {
+  border: none;
+  border-radius: 5px;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+option {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form input::placeholder {
+  color: #ccc;
+  font-weight: 600;
+}
+
+.grid, .filter {
+  background-color: hsl(0, 0%, 95%);
+}
+
+.grid article img {
+  border-radius: 10px 10px 0 0;
+  height: 200px;
+}
+
+.details {
+  border-radius: 0 0 10px 10px;
+}
+
+.details h4 span {
+  font-weight: 600;
 }
