@@ -105,13 +105,16 @@ option {
   font-weight: 600;
 }
 
-.grid, .filter {
+.countries, 
+.filter, 
+.pageCountry {
   background-color: hsl(0, 0%, 95%);
 }
 
 .grid article img {
   border-radius: 10px 10px 0 0;
   height: 200px;
+  width: 100%;
 }
 
 .details {
@@ -120,4 +123,41 @@ option {
 
 .details h4 span {
   font-weight: 600;
+}
+
+.btn {
+  background-color: hsl(0, 0%, 95%);
+  border: 2px solid var(--darkGray);
+  border-radius: 4px;
+  transition: background-color .5s;
+}
+
+.btn:hover {
+  background-color: var(--veryDarkBlueLightMode);
+  color: var(--white);
+}
+
+.link {
+  background-color: hsl(0, 0%, 95%);
+}
+
+.btn-light {
+  background-color: white;
+  border: 2px solid hsl(0, 0%, 88%);
+  border-radius: 5px;
+  color: var(--darkBlue);
+  font-weight: 600;
+}
+
+.country-details h4 span {
+  font-weight: 800;
+}
+
+.linkBorders {
+  border: 1px solid hsl(0, 0%, 88%);
+  border-radius: 4px;
+}
+
+#disable {
+  display: none;
 }

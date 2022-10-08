@@ -1,18 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Header = () => {
+    const [isOpen, setIsOpen] = useState(false)
   return (
     <header className='flex justify-between px-3 md:px-20 py-6'>
         <h1 className='text-xl font-bold'>Where in the world?</h1>
         <div className='flex items-center'>
             <button 
-                className="theme-toggle flex" 
+                className="flex items-center" 
                 id="theme-toggle" 
                 title="Toggles light & dark" 
                 aria-label="auto" 
                 aria-live="polite"
+                onClick={() => setIsOpen(!isOpen)}
             >
-                <svg className="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+                {!isOpen ? <i className='fas fa-sun '></i> : <i className='fas fa-moon '></i>}
+                
+{/*             <svg className="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
                     <circle className="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
                     <g className="sun-beams" stroke="currentColor">
                         <line x1="12" y1="1" x2="12" y2="3" />
@@ -28,9 +32,9 @@ const Header = () => {
                         <rect x="0" y="0" width="100%" height="100%" fill="white" />
                         <circle cx="24" cy="10" r="6" fill="black" />
                     </mask>
-                </svg>
+                </svg> */}
             </button>
-            <p className='font-bold ml-2'>Light Mode</p>
+            {!isOpen ? <p className='font-bold ml-2'>Light Mode</p> : <p className='font-bold ml-2'>Dark Mode</p>}
         </div>
     </header>
   )

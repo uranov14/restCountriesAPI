@@ -1,16 +1,19 @@
 import React from "react"
 import Countries from "./components/Countries"
-import { BrowserRouter as Router, Route, Link } from "react-router-dom"
-import Filter from "./components/Filter"
+import Country from "./components/Country"
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import Header from "./components/Header"
 
 function App() {
   return (
-    <>
-      <Header />
-      <Filter />
-      <Countries />
-    </>
+    <Router>
+     <Header />
+     
+     <Routes>
+      <Route path="/" element={<Countries />} />
+      <Route path="/countries/:name" element={<Country />}/>
+     </Routes>
+    </Router>
   );
 }
 
