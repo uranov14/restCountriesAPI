@@ -1,5 +1,29 @@
 import React, { useState } from 'react'
 
+const switchTheme = () => {
+    const header = document.getElementsByTagName('header')[0]
+    header.classList.toggle('dark_border')
+    header.classList.toggle('bg_dark')
+    document.body.classList.toggle('dark-theme')
+
+    const select = document.getElementById('select')
+    const btnBack = document.getElementById('btnBack')
+    if (select) {
+        select.classList.toggle('dark-theme')
+    } else {
+        btnBack.classList.toggle('dark-theme')
+    }
+    
+    const buttons = document.querySelectorAll('.btn')
+    buttons.forEach(button => {
+        button.classList.toggle('dark-theme')
+    })
+    const details = document.querySelectorAll('.details')
+    details.forEach(detail => {
+        detail.classList.toggle('dark-theme')
+    })
+}
+
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
   return (
@@ -8,13 +32,26 @@ const Header = () => {
         <div className='flex items-center'>
             <button 
                 className="flex items-center" 
-                id="theme-toggle" 
+                id="btn_theme-toggle" 
                 title="Toggles light & dark" 
                 aria-label="auto" 
                 aria-live="polite"
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => {
+                    switchTheme()
+                    setIsOpen(!isOpen)
+                }}
             >
-                {!isOpen ? <i className='fas fa-sun '></i> : <i className='fas fa-moon '></i>}
+                {!isOpen ? 
+                    <div className='flex items-center'>
+                        <i className='fas fa-sun '></i> 
+                        <p className='font-bold ml-2'>Light Mode</p>
+                    </div>
+                    : 
+                    <div className='flex items-center'>
+                        <i className='fas fa-moon '></i>
+                        <p className='font-bold ml-2'>Dark Mode</p>
+                    </div>
+                }
                 
 {/*             <svg className="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
                     <circle className="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
@@ -34,7 +71,6 @@ const Header = () => {
                     </mask>
                 </svg> */}
             </button>
-            {!isOpen ? <p className='font-bold ml-2'>Light Mode</p> : <p className='font-bold ml-2'>Dark Mode</p>}
         </div>
     </header>
   )

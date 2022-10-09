@@ -10,14 +10,22 @@
   font-size: 16px;
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
+  background-color: hsl(0, 0%, 95%);
   font-family: 'Nunito Sans', sans-serif;
+}
+
+body.dark-theme {
+  background-color: var(--veryDarkBlueDarkMode);
+  color: white;
 }
 
 img {
@@ -28,6 +36,16 @@ header {
   border-bottom: 5px solid hsl(0, 0%, 88%);
 }
 
+header.dark_border {
+  border-bottom: 5px solid var(--veryDarkBlueDarkMode);
+}
+
+.bg_dark {
+  background-color: var(--darkBlue);
+  color: #fff;
+}
+
+/*
 .theme-toggle {
   --size: 2rem;
   
@@ -54,7 +72,7 @@ header {
   block-size: 100%;
   stroke-linecap: round;
 }
-/*
+
 .sun-and-moon {
   & > :is(.moon, .sun, .sun-beams) {
     transform-origin: center center;
@@ -87,6 +105,13 @@ header {
 }
 */
 
+#btn_theme-toggle {
+  border-style: none;
+  background-color: transparent;
+}
+
+/* Filter */
+
 .form input, select {
   border: none;
   border-radius: 5px;
@@ -94,9 +119,22 @@ header {
   font-weight: 600;
 }
 
+.region-select {
+  width: 220px;
+  
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+select {
+  position: relative;
+  outline: none;
+  width: 160px;
+}
+
 option {
   font-family: inherit;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
 }
 
@@ -105,10 +143,21 @@ option {
   font-weight: 600;
 }
 
-.countries, 
-.filter, 
-.pageCountry {
-  background-color: hsl(0, 0%, 95%);
+.form input.dark-theme, 
+#select.dark-theme,
+.countries .details.dark-theme,
+.link_countries.dark-theme,
+.region-select.dark-theme {
+  background-color: var(--darkBlue);
+}
+
+#select, option {
+  font-weight: 700;
+}
+
+.btn.dark-theme {
+  background-color: var(--darkBlue);
+  color: #fff;
 }
 
 .grid article img {
@@ -126,36 +175,26 @@ option {
 }
 
 .btn {
-  background-color: hsl(0, 0%, 95%);
-  border: 2px solid var(--darkGray);
+  background-color: hsl(0, 0%, 100%);
   border-radius: 4px;
-  transition: background-color .5s;
-}
-
-.btn:hover {
-  background-color: var(--veryDarkBlueLightMode);
-  color: var(--white);
-}
-
-.link {
-  background-color: hsl(0, 0%, 95%);
-}
-
-.btn-light {
-  background-color: white;
-  border: 2px solid hsl(0, 0%, 88%);
-  border-radius: 5px;
   color: var(--darkBlue);
   font-weight: 600;
+  box-shadow: 0 3px 5px black;
 }
 
 .country-details h4 span {
   font-weight: 800;
 }
 
+.borders {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .linkBorders {
   border: 1px solid hsl(0, 0%, 88%);
   border-radius: 4px;
+  box-shadow: 0 2px 5px hsla(200, 15%, 8%, .5);
 }
 
 #disable {
