@@ -29,7 +29,7 @@ const Countries = () => {
         const btnTheme = document.getElementById('btn_theme-toggle')
 
         if (btnTheme.innerText === 'Dark Mode') {
-            document.getElementById('btnBack').classList.toggle('dark-theme') 
+            document.getElementById('btnBack').classList.add('dark-theme') 
         }
     }
 
