@@ -3,15 +3,7 @@ import { Link } from 'react-router-dom'
 import Filter from './Filter'
 
 const url = 'https://restcountries.com/v3.1/all'
-/*
-const testLocalStorage = () => {
-    if (localStorage.getItem('countries')) {
-        return localStorage.getItem('countries')
-    }
 
-    return []
-}
-*/
 const Countries = () => {
     const [countries, setCountries] = useState([])
 
@@ -20,6 +12,9 @@ const Countries = () => {
             const response = await fetch(url)
             const countries = await response.json()
             setCountries(countries)
+            countries.forEach(c => {
+                localStorage.setItem(c.cca3, c.name.common)
+            })
         }
         
         fetchCountries()
@@ -28,6 +23,14 @@ const Countries = () => {
     const removeCountry = (flag) => {
         const newCountries = countries.filter(item => item.flag !== flag)
         setCountries(newCountries)
+    }
+
+    const testTheme = () => {
+        const btnTheme = document.getElementById('btn_theme-toggle')
+
+        if (btnTheme.innerText === 'Dark Mode') {
+            document.getElementById('btnBack').classList.toggle('dark-theme') 
+        }
     }
 
   return (
@@ -47,6 +50,7 @@ const Countries = () => {
                         <div className='buttons flex items-center justify-between'>
                             <Link to={`/countries/${name.common}`}
                                 className='link_countries btn text-center p-1 shadow-lg'
+                                onClick={testTheme}
                             >
                                 Learn more
                             </Link>

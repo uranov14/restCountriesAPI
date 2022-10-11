@@ -119,6 +119,12 @@ header.dark_border {
   font-weight: 600;
 }
 
+svg.ais-SearchBox-submitIcon {
+  position: relative;
+  left: 9vw;
+  top: 4.8vh;
+}
+
 .region-select {
   width: 220px;
   
@@ -199,4 +205,11 @@ option {
 
 #disable {
   display: none;
+}
+
+@media (min-width: 768px) {
+  svg.ais-SearchBox-submitIcon {
+    top: 5.2vh;
+    left: 2.5vw;
+  }
 }

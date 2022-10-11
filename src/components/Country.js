@@ -1,25 +1,46 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import '../country.css'
 
 const Country = () => {
   const [country, setCountry] = useState([])
   const {name} = useParams()
 
   useEffect(() => {
-      const fetchCountries = async () => {
-          const response = await fetch(`https://restcountries.com/v3.1/name/${name}`)
-          const country = await response.json()
-          setCountry(country)
-      }
-      
-      fetchCountries()
+    const fetchCountries = async () => {
+      const response = await fetch(`https://restcountries.com/v3.1/name/${name}`)
+      const country = await response.json()
+      setCountry(country)
+    }
+    
+    fetchCountries()
   }, [name])
+
+  const switchTheme = () => {
+    const search = document.getElementById('search')
+    const select = document.getElementById('select')
+  
+    search.classList.toggle('dark-theme')
+    select.classList.toggle('dark-theme')
+    
+    const details = document.querySelectorAll('.details')
+    details.forEach(detail => {
+      detail.classList.toggle('dark-theme')
+    })
+
+    const buttons = document.querySelectorAll('.btn')
+    buttons.forEach(button => {
+      button.classList.toggle('dark-theme')
+    })
+  }
 
   return ( 
     <section className='pageCountry'>
       <div id='btnBack' className='pt-12 md:pt-20'>
-        <Link to="/" className='btn py-1 px-5 ml-5 md:mx-20'>
+        <Link 
+          to="/" 
+          className='btn py-1 px-5 ml-5 md:mx-20'
+          onClick={ switchTheme } 
+        >
           <i className='fas fa-arrow-left pr-2'></i>
           Back
         </Link>
@@ -72,14 +93,14 @@ const Country = () => {
               <h4 className='mr-2'>
                 <span className='text-sl'>Border Countries: </span>
               </h4>
-
+          
               <div className='borders mt-3 md:mt-0'>
                 {borders ?
                   borders.map((border, index) => {
                     return <Link 
-                    key={index} 
-                    to="/"
-                    className='linkBorders px-3 mr-3 mb-2'
+                      key={index}
+                      to={`/countries/${localStorage.getItem(border)}`}
+                      className='linkBorders px-3 mr-3 mb-2'
                     >
                       {border}
                     </Link>
