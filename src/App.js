@@ -1,19 +1,20 @@
 import React from "react"
 import Countries from "./components/Countries"
 import Country from "./components/Country"
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import { HashRouter as Router, Routes, Route} from "react-router-dom"
 import Header from "./components/Header"
 
 function App() {
   return (
-    <Router>
+    <>
      <Header />
-     
-     <Routes>
-      <Route path="/" element={<Countries />} />
-      <Route path="/countries/:name" element={<Country />}/>
-     </Routes>
-    </Router>
+     <Router> 
+      <Routes>
+        <Route path="/" element={<Countries />} />
+        <Route path="/countries/:name" element={<Country />}/>
+      </Routes>
+      </Router>
+    </>
   );
 }
 
