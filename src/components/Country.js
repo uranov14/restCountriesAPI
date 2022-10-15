@@ -15,31 +15,22 @@ const Country = () => {
     fetchCountries()
   }, [name])
 
-  const switchTheme = () => {
-    const search = document.getElementById('search')
-    const select = document.getElementById('select')
-  
-    search.classList.toggle('dark-theme')
-    select.classList.toggle('dark-theme')
-    
-    const details = document.querySelectorAll('.details')
-    details.forEach(detail => {
-      detail.classList.toggle('dark-theme')
-    })
+  useEffect(() => {
+    const btnBack = document.getElementById('btnBack')
+    const country = document.getElementById('pageCountry')
 
-    const buttons = document.querySelectorAll('.btn')
-    buttons.forEach(button => {
-      button.classList.toggle('dark-theme')
-    })
-  }
+    if (localStorage.getItem('isBlack')) {
+      btnBack.classList.add('dark-theme')
+      country.classList.add('dark-theme')
+    }
+  })
 
   return ( 
-    <section className='pageCountry'>
-      <div id='btnBack' className='pt-12 md:pt-20'>
-        <Link 
-          to="/" 
-          className='btn py-1 px-5 ml-5 md:mx-20'
-          onClick={ switchTheme } 
+    <section id='pageCountry'>
+      <div className='pt-12 md:pt-20'>
+        <Link to="/" 
+          id='btnBack'
+          className='py-1 px-5 ml-5 md:mx-20'
         >
           <i className='fas fa-arrow-left pr-2'></i>
           Back

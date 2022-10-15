@@ -19,87 +19,23 @@
 }
 
 body {
-  background-color: hsl(0, 0%, 95%);
+  background-color: var(--veryLightGrayLightMode);
   font-family: 'Nunito Sans', sans-serif;
 }
 
 body.dark-theme {
-  background-color: var(--veryDarkBlueDarkMode);
+  background-color: var(--darkBlue);
   color: white;
 }
 
 header {
-  border-bottom: 5px solid hsl(0, 0%, 88%);
+  background-color: #fff;
+  border-bottom: 5px solid hsl(0, 0%, 92%);
 }
 
 header.dark_border {
-  border-bottom: 5px solid var(--veryDarkBlueDarkMode);
+  border-bottom: 5px solid hsl(207, 28%, 15%);
 }
-
-.bg_dark {
-  background-color: var(--darkBlue);
-  color: #fff;
-}
-
-/*
-.theme-toggle {
-  --size: 2rem;
-  
-  background: none;
-  border: none;
-  padding: 0;
-
-  inline-size: var(--size);
-  block-size: var(--size);
-  aspect-ratio: 1;
-  border-radius: 50%;
-
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-  outline-offset: 5px;
-
-  @media (hover: none) {
-    --size: 48px;
-  }
-}
-
-.theme-toggle > svg {
-  inline-size: 100%;
-  block-size: 100%;
-  stroke-linecap: round;
-}
-
-.sun-and-moon {
-  & > :is(.moon, .sun, .sun-beams) {
-    transform-origin: center center;
-  }
-
-  & > :is(.moon, .sun) {
-    fill: var(--icon-fill);
-
-    @nest .theme-toggle:is(:hover, :focus-visible) > & {
-      fill: var(--icon-fill-hover);
-    }
-  }
-
-  & > .sun-beams {
-    stroke: var(--icon-fill);
-    stroke-width: 2px;
-
-    @nest .theme-toggle:is(:hover, :focus-visible) & {
-      stroke: var(--icon-fill-hover);
-    }
-  }
-}
-
-.sun-and-moon > :is(.moon, .sun) {
-  fill: var(--icon-fill);
-
-  @nest .theme-toggle:is(:hover, :focus-visible) > & {
-    fill: var(--icon-fill-hover);
-  }
-}
-*/
 
 #btn_theme-toggle {
   border-style: none;
@@ -122,8 +58,7 @@ svg.ais-SearchBox-submitIcon {
 }
 
 .region-select {
-  width: 220px;
-  
+  width: 220px; 
   border-radius: 0.25em;
   cursor: pointer;
 }
@@ -145,6 +80,7 @@ option {
   font-weight: 600;
 }
 
+header.dark-theme,
 .form input.dark-theme, 
 #select.dark-theme,
 .countries .details.dark-theme,
@@ -152,20 +88,45 @@ option {
 .region-select.dark-theme {
   background-color: var(--darkBlue);
 }
+#pageCountry.dark-theme,
+#filter.dark-theme,
+#countries.dark-theme {
+  background-color: var(--veryDarkBlueDarkMode);
+}
 
 #select, option {
   font-weight: 700;
 }
 
-.btn.dark-theme {
+.card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(151, 159, 162, 0.5);
+}
+.card.dark-theme {
   background-color: var(--darkBlue);
+  box-shadow: 0 2px 5px black;
+}
+
+#pageCountry {
+  background-color: var(--veryLightGrayLightMode);
+}
+
+#btnBack {
+  border: 3px solid hsl(0, 0%, 92%);
+  border-radius: 5px;
+}
+
+#btnBack.dark-theme {
+  background-color: var(--darkBlue);
+  border: 3px solid  hsl(207, 28%, 15%);
   color: #fff;
 }
 
 .grid article img {
-  border-radius: 10px 10px 0 0;
-  height: 190px;
-  min-width: 100%;
+  border-radius: 5px 5px 0 0;
+  height: 200px;
+  width: 100%;
 }
 
 .details {
@@ -180,8 +141,14 @@ option {
   background-color: hsl(0, 0%, 100%);
   border-radius: 4px;
   color: var(--darkBlue);
+  font-size: .9em;
   font-weight: 600;
-  box-shadow: 0 3px 5px black;
+  box-shadow: 0 2px 5px rgba(151, 159, 162, 0.5);
+}
+.btn.dark-theme {
+  background-color: var(--darkBlue);
+  box-shadow: 0 2px 5px black;
+  color: #fff;
 }
 
 .country-details h4 span {
@@ -201,6 +168,10 @@ option {
 
 #disable {
   display: none;
+}
+
+.flag img {
+  box-shadow: 0 0 20px rgb(2, 3, 3);
 }
 
 @media (min-width: 768px) {
