@@ -45,20 +45,26 @@ header.dark_border {
 /* Filter */
 
 .form input, select {
+  background-color: transparent;
   border: none;
   border-radius: 5px;
   font-family: inherit;
   font-weight: 600;
 }
 
-svg.ais-SearchBox-submitIcon {
-  position: relative;
-  left: 9vw;
-  top: 4.8vh;
+#form {
+  display: flex;
+  align-items: center;
+}
+
+.fa-search {
+  color:hsla(0, 0%, 72%, .8);
+  transform: scale(1.2);
 }
 
 .region-select {
-  width: 220px; 
+  text-align: center;
+  width: 200px; 
   border-radius: 0.25em;
   cursor: pointer;
 }
@@ -76,8 +82,13 @@ option {
 }
 
 .form input::placeholder {
-  color: #ccc;
+  color: #bbb;
   font-weight: 600;
+}
+
+#select {
+  color: var(--darkBlue);
+  
 }
 
 header.dark-theme,
@@ -93,9 +104,8 @@ header.dark-theme,
 #countries.dark-theme {
   background-color: var(--veryDarkBlueDarkMode);
 }
-
-#select, option {
-  font-weight: 700;
+#select.dark-theme {
+  color: var(--veryLightGrayLightMode);
 }
 
 .card {
@@ -175,8 +185,5 @@ header.dark-theme,
 }
 
 @media (min-width: 768px) {
-  svg.ais-SearchBox-submitIcon {
-    top: 5.2vh;
-    left: 2.5vw;
-  }
+  
 }
